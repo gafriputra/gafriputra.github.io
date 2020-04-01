@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+
+    <title>WPU Movie</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">WPU Movie</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Search Movie</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row mt-3 justify-content-center">
+        <div class="col-md-8">
+          <h1 class="text-center">Search Movie</h1>
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Movie title.."
+              id="search-input"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-dark" type="button" id="search-button">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row" id="movie-list"></div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Movie Search</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function searchMovie() {
+        // jquery tolong carikan saya id ini, dan kosongkan isi nya
+        $("#movie-list").html("");
+
+        $.ajax({
+          url: "http://omdbapi.com", //link api nya
+          type: "get", // kalok ngambil aja pakai get
+          dataType: "json", //terima data kembaliannya dalam bentuk json
+          data: {
+            apikey: "a231956b", //api key kita
+            s: $("#search-input").val() //isi key s sesuai dengan isi input id search-input
+          },
+          // jika sudah sukses
+          success: function(result) {
+            if (result.Response == "True") {
+              let movies = result.Search;
+
+              // jika looping array dari hasil variabel movies
+              // keluarkan semua hasilnya
+              // dari variabel menu, lalu tiap elemetnya dimenu kemudian jalankan fungsi
+              // dengan menaruh hasilnya ke parameter, index dan datanya
+              $.each(movies, function(i, data) {
+                // pakai backkutip biar bisa di enter dan spasi
+                // jquery carikan saya element ini, setelah ketemu, append itu tambahkan diakhir sebuah elemet baru
+                // pengganti konkait adalah ${}
+                $("#movie-list").append(`
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <img src="${data.Poster}" class="card-img-top" alt="..."> 
+                                <div class="card-body">
+                                <h5 class="card-title">${data.Title}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">${data.Year}</h6>
+                                <a href="#" class="card-link see-detail" data-toggle="modal" data-target="#exampleModal" data-id="${data.imdbID}">See Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+              });
+
+              // kosongin value di input searchny
+              $("#search-input").val("");
+            } else {
+              // jika tidak
+              // jquery tolong carikan saya id ini, dan isi nya diisi pesan error dari apinya (respon json)
+              // pakai backkutip biar bisa enter dan spasi dipenulisan elementnya
+              $("#movie-list").html(
+                `
+                    <div class="col">
+                        <h1 class="text-center">` +
+                  result.Error +
+                  `</h1>
+                    </div>
+                `
+              );
+            }
+          }
+        });
+      }
+
+      // jika tombol carinya ditekan tampilkan fungsi
+      $("#search-button").on("click", function() {
+        searchMovie();
+      });
+
+      // jika enternya (kode enter 13)nya ditekan tampilkan fungsi
+      $("#search-input").on("keyup", function(e) {
+        if (e.which === 13) {
+          searchMovie();
+        }
+      });
+
+      // jquery carikan saya element movie-list
+      // lalu ketika clik sebuah element see-detail didlamnaya
+      // baik yang munuculnya dr awal  atau nanti
+      // event binding/delegation
+      $("#movie-list").on("click", ".see-detail", function() {
+        $.ajax({
+          url: "http://omdbapi.com", //link api nya
+          type: "get", // kalok ngambil aja pakai get
+          dataType: "json", //terima data kembaliannya dalam bentuk json
+          data: {
+            apikey: "a231956b", //apikey
+            i: $(this).data("id") //tambol siditail dengan mengabil data-id yang sedang saya klik
+          },
+          // jika sukses jalankan fungsi dengan menerima hasilnya dimasukkan ke parameter
+          success: function(movie) {
+            // jika responnya sama dengan string true
+            if (movie.Response === "True") {
+              // carikan clas ini, timpa isi nya dengan sbb
+              $(".modal-body").html(
+                `
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="` +
+                  movie.Poster +
+                  `" class="img-fluid">
+                            </div>
+
+                            <div class="col-md-8">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><h3>` +
+                  movie.Title +
+                  `</h3></li>
+                                    <li class="list-group-item">Released : ` +
+                  movie.Released +
+                  `</li>
+                                    <li class="list-group-item">Genre : ` +
+                  movie.Genre +
+                  `</li>                 
+                                    <li class="list-group-item">Director : ` +
+                  movie.Director +
+                  `</li>                 
+                                    <li class="list-group-item">Director : ` +
+                  movie.Actors +
+                  `</li>                 
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+              );
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
