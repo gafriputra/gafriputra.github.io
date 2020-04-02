@@ -1,4 +1,5 @@
 function tampilkanSemuaMenu() {
+     $('#daftar-menu').html();
     // jquery tolong ambilkan data json pakai ajax
     // jika keambil dan sukses, jalankan fungsi dengan memasukkan hasil ke parameter
     $.getJSON('data/pizza.json', function (data) {
