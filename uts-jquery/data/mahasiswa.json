@@ -1,0 +1,66 @@
+{
+    "mahasiswa": [{
+            "nama": "Ade Tommy",
+            "alamat": "Dupak, Surabaya",
+            "jenis_kelamin": "Laki-Laki",
+            "tgl_lahir": "12 Februari 2000",
+            "gambar": "ade.jfif"
+        },
+        {
+            "nama": "Dika Isaq",
+            "alamat": "Waru, Sidoarjo",
+            "jenis_kelamin": "Laki-Laki",
+            "tgl_lahir": "05 Maret 2000",
+            "gambar": "dika.jfif"
+        },
+        {
+            "nama": "Endra Hadi",
+            "alamat": "Kenjeran, Surabaya",
+            "jenis_kelamin": "Laki-Laki",
+            "tgl_lahir": "18 September 2000",
+            "gambar": "endra.jfif"
+        },
+        {
+            "nama": "Fatchur Rozi",
+            "alamat": "Karangpilang, Surabaya",
+            "jenis_kelamin": "Laki-Laki",
+            "tgl_lahir": "13 Februari 2000",
+            "gambar": "rozi.jfif"
+        },
+        {
+            "nama": "Gafri Putra",
+            "alamat": "Waru, Sidoarjo",
+            "jenis_kelamin": "Laki-Laki",
+            "tgl_lahir": "09 Mei 2000",
+            "gambar": "gafri.jfif"
+        },
+        {
+            "nama": "Helmy Tajuddin",
+            "alamat": "Sedati, Sidoarjo",
+            "jenis_kelamin": "Laki-Laki",
+            "tgl_lahir": "09 Juli 2000",
+            "gambar": "helmy.jfif"
+        },
+        {
+            "nama": "Alvan Ardiansyah",
+            "alamat": "Parang, Magetan",
+            "jenis_kelamin": "Laki-Laki",
+            "tgl_lahir": "28 Maret 2000",
+            "gambar": "alvan.jfif"
+        },
+        {
+            "nama": "Chaioroldi",
+            "alamat": "Sedati, Sidoarjo",
+            "jenis_kelamin": "Laki-Laki",
+            "tgl_lahir": "01 Januari 1996",
+            "gambar": "erol.jfif"
+        },
+        {
+            "nama": "Yohanes",
+            "alamat": "Manggarai, NTT",
+            "jenis_kelamin": "Laki-Laki",
+            "tgl_lahir": "15 Maret 2000",
+            "gambar": "yohanes.jfif"
+        }
+    ]
+}
