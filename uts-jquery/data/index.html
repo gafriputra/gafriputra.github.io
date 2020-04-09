@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+			crossorigin="anonymous"
+		/>
+
+		<style>
+			div .gafri {
+				width: 80px;
+				height: 80px;
+			}
+
+			.disNone {
+				display: none;
+			}
+
+			.red {
+				background-color: red;
+			}
+			.green {
+				background-color: green;
+			}
+			.blue {
+				background-color: blue;
+			}
+
+			.panel,
+			.flip {
+				padding: 5px;
+				text-align: center;
+				background-color: #e5eecc;
+				border: solid 1px #c3c3c3;
+			}
+
+			.panel2,
+			.flip2 {
+				padding: 5px;
+				font-size: 18px;
+				text-align: center;
+				background-color: #555;
+				color: white;
+				border: solid 1px #666;
+				border-radius: 3px;
+			}
+
+			.panel,
+			.panel2 {
+				padding: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<hr class="mt-5" />
+			<h1>HIDE()</h1>
+			<button id="hide" class="btn btn-primary">HIDE</button>
+			<p id="hide">
+				Parameter kecepatan opsional menentukan kecepatan menyembunyikan /
+				menampilkan
+			</p>
+			<p id="hide">
+				Parameter kecepatan opsional menentukan kecepatan menyembunyikan /
+				menampilkan
+			</p>
+
+			<hr class="mt-5" />
+			<h1>HIDE() And SHOW()</h1>
+			<button id="hide1" class="btn btn-outline-primary">HIDE</button>
+			<button id="show" class="btn btn-outline-success">SHOW</button>
+			<p id="hideShow">
+				Dengan jQuery, Anda dapat menyembunyikan dan menampilkan elemen HTML
+				dengan hide () dan Show()
+			</p>
+
+			<hr class="mt-5" />
+			<h1>TOGGLE()</h1>
+			<button id="toggle" class="btn btn-outline-primary">TOGGLE</button>
+			<p id="toggle">
+				Dengan jQuery, Anda dapat menyembunyikan sekaligus menampilkan elemen
+				HTML dengan Toggle ()
+			</p>
+
+			<hr class="mt-5" />
+			<h1>FadeIn()</h1>
+			<button id="fadeIn" class="btn btn-outline-primary">FadeIn</button>
+			<div class="row m-2">
+				<div class="gafri disNone red" id="div1"></div>
+
+				<div class="gafri disNone green" id="div2"></div>
+
+				<div class="gafri disNone blue" id="div3"></div>
+			</div>
+
+			<hr class="mt-5" />
+			<h1>FadeOut()</h1>
+			<button id="fadeOut" class="btn btn-outline-primary">FadeOut</button>
+			<div class="row m-2">
+				<div class="gafri red" id="div4"></div>
+
+				<div class="gafri green" id="div5"></div>
+
+				<div class="gafri blue" id="div6"></div>
+			</div>
+
+			<hr class="mt-5" />
+			<h1>FadeToggle()</h1>
+			<button id="fadeToggle" class="btn btn-outline-primary">
+				FadeToggle
+			</button>
+			<div class="row m-2">
+				<div class="gafri red" id="div7"></div>
+
+				<div class="gafri green" id="div8"></div>
+
+				<div class="gafri blue" id="div9"></div>
+			</div>
+
+			<hr class="mt-5" />
+			<h1>FadeTo()</h1>
+			<button id="fadeTo" class="btn btn-outline-primary">
+				FadeTo
+			</button>
+			<div class="row m-2">
+				<div class="gafri red" id="div10"></div>
+
+				<div class="gafri green" id="div11"></div>
+
+				<div class="gafri blue" id="div12"></div>
+			</div>
+
+			<hr class="mt-5" />
+			<h1>SLIDESHOW()</h1>
+			<div class="flip" id="flip">Clict to slide down panel</div>
+			<div class="panel disNone" id="panel">Hello World</div>
+
+			<hr class="mt-5" />
+			<h1>SLIDEUP()</h1>
+			<div class="flip" id="flipUp">Clict to slide up panel</div>
+			<div class="panel" id="panelUp">Hello World</div>
+
+			<hr class="mt-5" />
+			<h1>SLIDETOGGLE()</h1>
+			<div class="flip" id="flipToggle">Clict to slide Toggle panel</div>
+			<div class="panel disNone" id="panelToggle">Hello World</div>
+
+			<hr class="mt-5" />
+			<h1>ANIMATE()</h1>
+			<button class="btn btn-primary" id="animate">Start Animate</button>
+			<p id="animate">
+				Parameter kecepatan opsional menentukan durasi efek. Ini dapat mengambil
+				nilai-nilai berikut: "lambat", "cepat", atau milidetik.
+			</p>
+
+			<div
+				id="animate"
+				style="background: #98bf21;height: 100px;width: 100px;position: absolute;"
+			></div>
+
+			<div style="margin-top: 150px;"></div>
+			<hr class="mt-5" />
+			<h1>STOP()</h1>
+			<button class="btn btn-primary" id="stop">Stop Sliding</button>
+			<div class="flip2" id="flipStop">Click TO SLide Down PaneL</div>
+			<div class="panel2 disNone" id="panelStop">Hello World</div>
+
+			<hr class="mt-5" />
+			<h1>CALLBACK FUNCTION</h1>
+			<button id="callBack" class="btn btn-primary">CALLBACK</button>
+			<p id="callBack">
+				Pernyataan JavaScript dieksekusi baris demi baris. Namun, dengan efek,
+				baris kode berikutnya dapat dijalankan meskipun efeknya belum selesai.
+				Ini bisa membuat kesalahan.
+			</p>
+
+			<hr class="mt-5" />
+			<h1>CHAINING</h1>
+			<p id="chaining">Jquery Is Fun!</p>
+			<button class="btn btn-outline-danger" id="chaining">CHAINING</button>
+			<div style="margin-top: 150px;"></div>
+		</div>
+
+		<!-- Jquery -->
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+			integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+			integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+			crossorigin="anonymous"
+		></script>
+
+		<script>
+			$(document).ready(function() {
+				// hide()
+				$("button#hide").click(function() {
+					$("p#hide").hide(1000);
+				});
+
+				// hide() and show()
+				$("button#hide1").click(function() {
+					$("p#hideShow").hide();
+				});
+				$("button#show").click(function() {
+					$("p#hideShow").show();
+				});
+
+				// toggle()
+				$("button#toggle").click(function() {
+					$("p#toggle").toggle();
+				});
+
+				// fadein()
+				$("button#fadeIn").click(function() {
+					$("#div1").fadeIn();
+					$("#div2").fadeIn("slow");
+					$("#div3").fadeIn(3000);
+				});
+
+				// fadeOut()
+				$("button#fadeOut").click(function() {
+					$("#div4").fadeOut();
+					$("#div5").fadeOut("slow");
+					$("#div6").fadeOut(3000);
+				});
+
+				// fadeToggle()
+				$("button#fadeToggle").click(function() {
+					$("#div7").fadeToggle();
+					$("#div8").fadeToggle("slow");
+					$("#div9").fadeToggle(3000);
+				});
+
+				// fadeTo()
+				$("button#fadeTo").click(function() {
+					$("#div10").fadeTo("slow", 0.15);
+					$("#div11").fadeTo("slow", 0.4);
+					$("#div12").fadeTo("slow", 0.7);
+				});
+
+				$("#flip").click(function() {
+					$("#panel").slideDown("slow");
+				});
+
+				$("#flipUp").click(function() {
+					$("#panelUp").slideUp("slow");
+				});
+
+				$("#flipToggle").click(function() {
+					$("#panelToggle").slideToggle("slow");
+				});
+
+				$("button#animate").click(function() {
+					$("div#animate").animate({ left: "100%" });
+				});
+
+				$("#flipStop").click(function() {
+					$("#panelStop").slideDown(5000);
+				});
+
+				$("#stop").click(function() {
+					$("#panelStop").stop();
+				});
+
+				$("button#callBack").click(function() {
+					$("p#callBack").hide("slow", function() {
+						alert("The Paragraph is now hidden");
+					});
+				});
+
+				$("button#chaining").click(function() {
+					$("p#chaining")
+						.css("color", "red")
+						.slideUp(2000)
+						.slideDown(2000);
+				});
+			});
+		</script>
+	</body>
+</html>
